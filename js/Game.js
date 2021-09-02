@@ -34,4 +34,15 @@ class Game {
     const index = Math.floor(Math.random() * this.phrases.length);
     return this.phrases[index];
   }
+
+  /**
+   * Begins game by selecting a random phrase
+   * then displaying appropriate placeholders
+   */
+  startGame() {
+    document.getElementById('overlay').style.display = 'none';
+    const phrase = this.getRandomPhrase();
+    phrase.addPhraseToDisplay();
+    this.activePhrase = phrase;
+  }
 }
