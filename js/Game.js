@@ -87,6 +87,11 @@ class Game {
     return remainingCount === 0;
   }
 
+  /**
+   * Increases the value of the 'missed' property
+   * Removes a life from the scoreboard
+   * Checks if the player has remaining lives & ends game if not
+   */
   removeLife() {
     this.missed++;
     const heartLis = document.querySelectorAll('li.tries');
@@ -106,6 +111,10 @@ class Game {
     }
   }
 
+  /**
+   * Displays game over message
+   * @param {boolean} gameWon - Whether or not the user won the game
+   */
   gameOver(gameWon) {
     const overlay = document.getElementById('overlay');
     const gameOverMessage = document.getElementById('game-over-message');
