@@ -17,3 +17,5 @@ The virtual keyboard is disabled until the game is started by adding a 'no-nav' 
 
 ## Personalization
 I changed the colors of disabled keys on the onscreen keyboard, to make it more apparent that they are disabled. I also added a red border-color to those disabled keys.
+
+Additionally, I added a `transform: scale(1.25)` to the buttons on hover/focus.
