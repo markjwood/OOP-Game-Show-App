@@ -24,7 +24,10 @@ class Game {
       'kill two birds with one stone'
     ];
     const phraseObjects = [];
-    phrases.forEach(phrase => phraseObjects.push(new Phrase(phrase)));
+    phrases.forEach(phrase => {
+      phrase = phrase.replace(/[^A-Za-z ]/g, '');
+      phraseObjects.push(new Phrase(phrase));
+    });
     return phraseObjects;
   }
 
