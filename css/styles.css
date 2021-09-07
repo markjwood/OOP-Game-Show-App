@@ -60,6 +60,11 @@ button {
   cursor: pointer;
 }
 
+button:hover,
+button:focus {
+  transform: scale(1.25);
+}
+
 #btn__reset {
 	width: 200px;
 	margin: 0 auto;
