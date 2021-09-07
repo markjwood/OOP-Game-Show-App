@@ -43,7 +43,6 @@ class Phrase {
    */
   showMatchedLetter(letter) {
     const matches = document.querySelectorAll('.letter.' + letter);
-    console.log(matches);
     
     matches.forEach(match => {
       match.classList.remove('hide');
