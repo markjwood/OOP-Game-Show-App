@@ -21,7 +21,7 @@ keyboard.forEach(key => {
 document.addEventListener('keyup', key => {
   const letter = key.key.toLowerCase();
 
-  if (/[a-z]/.test(letter)) {
+  if (/[a-z]/.test(letter) && overlay.style.display === 'none') {
     for (let k of keyboard) {
       if (k.textContent === letter && !k.disabled) {
         game.handleInteraction(k);
