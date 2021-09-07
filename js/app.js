@@ -16,3 +16,17 @@ startButton.addEventListener('click', () => {
 keyboard.forEach(key => {
   key.addEventListener('click', k => game.handleInteraction(k.target));
 });
+
+// physical keyboard functionality
+document.addEventListener('keyup', key => {
+  const letter = key.key.toLowerCase();
+
+  if (/[a-z]/.test(letter)) {
+    for (let k of keyboard) {
+      if (k.textContent === letter && !k.disabled) {
+        game.handleInteraction(k);
+        break;
+      };
+    }
+  }
+});
