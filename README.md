@@ -13,7 +13,7 @@ The game ends after 5 incorrect guesses or when the phrase is completed, and a "
 ## Additional features
 In addition to the onscreen "virtual" keyboard, the game is playable with a normal physical keyboard.
 
-The virtual keyboard is disabled until the game is started. Prior to adding this feature, a user who navigates with the tab key on the computer keyboard could accidentally tab past the "Start Game" button to the virtual keyboard; however, since the virtual keyboard isn't visible, it would be unclear where the keyboard focus is, giving the appearance that keyboard navigation is not working.
+The virtual keyboard is disabled until the game is started by adding a 'no-nav' class that gives the keyboard `visability: hidden`. Prior to adding this feature, a user who navigates with the tab key on the computer keyboard could accidentally tab past the "Start Game" button to the virtual keyboard; however, since the virtual keyboard isn't visible, it would be unclear where the keyboard focus is, giving the appearance that keyboard navigation is not working.
 
 ## Personalization
 I changed the colors of disabled keys on the onscreen keyboard, to make it more apparent that they are disabled. I also added a red border-color to those disabled keys.
