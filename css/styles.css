@@ -136,15 +136,17 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: hsl(230, 11%, 50%);
   border-radius: 5px;
+  border-color: hsl(0, 50%, 50%);
   font-size: var(--font-size-medium);
-  color: #FFFFFF;
+  color: hsl(230, 11%, 65%);
 }
 
 .wrong {
-  background: #f7a964;
-  color: #FFFFFF;
+  background: hsl(28, 20%, 68%);
+  border-color: hsl(0, 50%, 50%);
+  color: hsl(28, 20%, 48%);
 }
 
 .btn__reset {
