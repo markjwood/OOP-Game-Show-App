@@ -2,6 +2,8 @@
  * Project 4 - OOP Game App
  * Game.js */
 
+const heartLis = document.querySelectorAll('li.tries');
+
 class Game {
   constructor() {
     this.missed = 0;
@@ -40,10 +42,17 @@ class Game {
    * then displaying appropriate placeholders
    */
   startGame() {
-    document.getElementById('overlay').style.display = 'none';
     const phrase = this.getRandomPhrase();
+    
+    overlay.style.display = 'none';
+    overlay.className = '';
     phrase.addPhraseToDisplay();
     this.activePhrase = phrase;
+
+    // reset scoreboard
+    heartLis.forEach(li => {
+      li.firstElementChild.setAttribute('src', 'images/liveHeart.png');
+    });
   }
 
   /**
@@ -54,21 +63,19 @@ class Game {
    * check for a win, remove a life, or
    * end the game.
    */
-  handleInteraction() {
-    const keys = document.querySelectorAll('.key');
+  handleInteraction(key) {
+    const letter = key.textContent;
+    key.disabled = true;
 
-    keys.forEach(key => {
-      key.addEventListener('click', e => {
-        const letter = e.target.textContent;
+    if (this.activePhrase.checkLetter(letter)) {
+      key.classList.add('chosen');
+      this.activePhrase.showMatchedLetter(letter);
 
-        if (this.activePhrase.checkLetter(letter)) {
-          this.activePhrase.showMatchedLetter(letter);
-          if (this.checkForWin()) this.gameOver(true);
-        } else {
-          this.removeLife();
-        }
-      });
-    });
+      if (this.checkForWin()) this.gameOver(true);
+    } else {
+      key.classList.add('wrong');
+      this.removeLife();
+    }
   }
 
   /**
@@ -94,7 +101,6 @@ class Game {
    */
   removeLife() {
     this.missed++;
-    const heartLis = document.querySelectorAll('li.tries');
     const remainingLives = heartLis.length - this.missed;
     let heart;
 
@@ -116,17 +122,25 @@ class Game {
    * @param {boolean} gameWon - Whether or not the user won the game
    */
   gameOver(gameWon) {
-    const overlay = document.getElementById('overlay');
     const gameOverMessage = document.getElementById('game-over-message');
+
+    // re-enable disabled keys
+    keyboard.forEach(key => {
+      key.disabled = false;
+      key.classList.remove('wrong', 'chosen');
+    });
+    
+    // clear phrase
+    phraseUl.innerHTML = '';
 
     overlay.style.display = 'flex';
     if (gameWon) {
       gameOverMessage.textContent = 'You won! Great job!';
-      overlay.classList.remove('start');
+      overlay.classList.remove('start', 'lose');
       overlay.classList.add('win');
     } else {
       gameOverMessage.textContent = 'You lost. Better luck next time.';
-      overlay.classList.remove('start');
+      overlay.classList.remove('start', 'win');
       overlay.classList.add('lose');
     }
   }
