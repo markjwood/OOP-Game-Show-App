@@ -107,8 +107,10 @@ class Game {
     const remainingLives = heartLis.length - this.missed;
     let heart;
 
+
+    // get the last 'liveHeart' & change to 'lostHeart'
     heartLis.forEach(li => {
-      const heartImg = li.firstElementChild;
+      const heartImg = li.firstElementChild; 
       if (heartImg.getAttribute('src').includes('liveHeart')) {
         heart = heartImg;
       }
