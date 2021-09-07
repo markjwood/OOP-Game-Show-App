@@ -3,6 +3,7 @@
  * Game.js */
 
 const heartLis = document.querySelectorAll('li.tries');
+const qwerty = document.getElementById('qwerty');
 
 class Game {
   constructor() {
@@ -49,6 +50,7 @@ class Game {
     
     overlay.style.display = 'none';
     overlay.className = '';
+    qwerty.classList.remove('no-nav');
     phrase.addPhraseToDisplay();
     this.activePhrase = phrase;
 
@@ -139,6 +141,7 @@ class Game {
     phraseUl.innerHTML = '';
 
     overlay.style.display = 'flex';
+    qwerty.classList.add('no-nav');
     if (gameWon) {
       gameOverMessage.textContent = 'You won! Great job!';
       overlay.classList.remove('start', 'lose');

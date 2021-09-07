@@ -125,6 +125,11 @@ button {
 
 /* Keyboard */
 
+.no-nav {
+  /* prevents keyboard navigation from tabbing through keys before the game is started */
+  visibility: hidden;
+}
+
 .keyrow {
   display: flex;
   justify-content: center;
